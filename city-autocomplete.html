@@ -24,10 +24,10 @@
             },
             options: {
                 type: Object,
-                value: function () { return {
+                value:  {
                     types: ['(cities)'],
                     componentRestrictions: {country: "cz"}
-                }; }
+                 }
             },
             place: {
                 type: Object,
@@ -36,7 +36,10 @@
             }
         },
         on_api_load: function () {
-            this.autocomplete = new google.maps.places.Autocomplete(this.$.input, this.options);
+            this.autocomplete = new google.maps.places.Autocomplete(this.$.input, {
+                types: ['(cities)'],
+                componentRestrictions: {country: "cz"}
+            });
             google.maps.event.addListener(this.autocomplete, 'place_changed', this.on_change_place.bind(this));
         },
         on_change_place: function () {
@@ -44,6 +47,7 @@
             if (!this.place.address_components) {
                 return;
             }
+            debugger;
 
             this.value = this.place.name;
 
