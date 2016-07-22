@@ -9,7 +9,7 @@
         }
     </style>
     <template>
-        <google-maps-api id="maps" libraries="places" on-api-load="on_api_load"></google-maps-api>
+        <google-maps-api api-key="AIzaSyBbbTEqaAjcWVDdrIpwlS-0Tl4CTheJThE" id="maps" libraries="places" on-api-load="on_api_load"></google-maps-api>
         <input id="input" name='city' class="input" type="text" value="{{value}}" />
 
     </template>
@@ -47,7 +47,7 @@
             if (!this.place.address_components) {
                 return;
             }
-            debugger;
+
 
             this.value = this.place.name;
 
